@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>F-15.net/search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-logo">F-15.net</div>
+    <ul class="nav-links">
+      <li><a href="index.html" target="_blank">Home</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="archives.html" target="_blank">Archives</a></li>
+      <li><a href="login.html" class="active">Login</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <h1>Search for articles</h1>
+    <p>Enter keywords to find F-15 related pages:</p>
+
+    <form id="searchForm" class="search-form">
+      <input type="text" id="searchInput" placeholder="Type keywords..." required />
+      <button type="submit">Search</button>
+    </form>
+
+    <div id="results" class="results"></div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

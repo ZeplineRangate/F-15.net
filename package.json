@@ -1,0 +1,13 @@
+{
+  "name": "f-15.net",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "rm -rf build",
+    "copy": "mkdir -p build && cp src/index.html build/index.html && cp src/style.css build/style.css && cp src/main.js build/main.js",
+    "build": "npm run clean && npm run copy",
+    "start": "live-server build --port=3000" 
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | F-15.net</title>
+  <link rel="stylesheet" href="style.css?">
+</head>
+<body>
+
+  <nav class="navbar">
+  <div class="nav-logo">F-15.net</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="search.html">Search</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="login.html">Login</a></li>
+  </ul>
+  </nav>
+  
+  <div class="login-container">
+    <h1>Member Login</h1>
+  
+    <form id="loginForm" class="login-form">
+  
+      <label for="username">Username</label>
+      <input type="text" id="username" required>
+  
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+  
+      <label for="captchaInput">
+        Human Verification: <strong id="captchaText"></strong>
+      </label>
+      <input type="text" id="captchaInput" required>
+  
+      <button type="submit">Log In</button>
+  
+      <p id="loginMessage"></p>
+    </form>
+  </div>
+    
+  <script src="login.js"></script>
+
+</body>
+
+</html>
