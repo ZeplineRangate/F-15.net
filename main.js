@@ -4,8 +4,8 @@ const toggle=document.getElementById("menu-toggle")
 const nav=document.getElementById("navLinks")
 
 if(toggle){
-toggle.addEventListener("click",()=>{
-nav.classList.toggle("open")
+  toggle.addEventListener("click",()=>{
+  nav.classList.toggle("open")
 })
 }
 
@@ -15,15 +15,15 @@ const topBtn=document.getElementById("topBtn")
 
 window.addEventListener("scroll",()=>{
 if(window.scrollY>300){
-topBtn.style.display="block"
+  topBtn.style.display="block"
 }else{
-topBtn.style.display="none"
+  topBtn.style.display="none"
 }
 })
 
 if(topBtn){
-topBtn.addEventListener("click",()=>{
-window.scrollTo({top:0,behavior:"smooth"})
+  topBtn.addEventListener("click",()=>{
+  window.scrollTo({top:0,behavior:"smooth"})
 })
 }
 
@@ -42,21 +42,21 @@ const container=document.getElementById("aircraftContainer")
 
 function renderAircraft(list){
 
-if(!container) return
+  if(!container) return
 
-container.innerHTML=""
-
-list.forEach(a=>{
-
-const card=document.createElement("div")
-
-card.innerHTML=`
-<h3>${a.name}</h3>
-<p>Year: ${a.year}</p>
-<p>Role: ${a.role}</p>
-`
-
-container.appendChild(card)
+  container.innerHTML=""
+  
+  list.forEach(a=>{
+  
+  const card=document.createElement("div")
+  
+  card.innerHTML=`
+  <h3>${a.name}</h3>
+  <p>Year: ${a.year}</p>
+  <p>Role: ${a.role}</p>
+  `
+  
+  container.appendChild(card)
 
 })
 
@@ -70,15 +70,15 @@ const searchInput=document.getElementById("searchInput")
 
 if(searchInput){
 
-searchInput.addEventListener("input",()=>{
+  searchInput.addEventListener("input",()=>{
+  
+  const filtered=aircraft.filter(a=>
+    a.name.toLowerCase().includes(searchInput.value.toLowerCase())
+  )
+  
+  renderAircraft(filtered)
 
-const filtered=aircraft.filter(a=>
-a.name.toLowerCase().includes(searchInput.value.toLowerCase())
-)
-
-renderAircraft(filtered)
-
-})
+  })
 
 }
 
@@ -91,7 +91,7 @@ btn.addEventListener("click",()=>{
 const content=btn.nextElementSibling
 
 document.querySelectorAll(".accordion-content").forEach(c=>{
-if(c!==content) c.style.display="none"
+  if(c!==content) c.style.display="none"
 })
 
 content.style.display=
@@ -107,74 +107,75 @@ const form=document.getElementById("loginForm")
 
 if(form){
 
-form.addEventListener("submit",(e)=>{
-
-let valid=true
-
-const username=document.getElementById("username")
-const email=document.getElementById("email")
-const message=document.getElementById("message")
-
-const userError=document.getElementById("userError")
-const emailError=document.getElementById("emailError")
-const msgError=document.getElementById("msgError")
-
-userError.textContent=""
-emailError.textContent=""
-msgError.textContent=""
-
-if(username.value===""){
-userError.textContent="Username required"
-valid=false
-}
-
-if(!email.value.includes("@")){
-emailError.textContent="Valid email required"
-valid=false
-}
-
-if(message.value.length<10){
-msgError.textContent="Message must be 10 characters"
-valid=false
-}
-
-if(!valid){
-e.preventDefault()
-}else{
-document.getElementById("successMessage").textContent=
-"Thanks! We'll get back to you soon."
-e.preventDefault()
-}
+  form.addEventListener("submit",(e)=>{
+  
+  let valid=true
+  
+  const username=document.getElementById("username")
+  const email=document.getElementById("email")
+  const message=document.getElementById("message")
+  
+  const userError=document.getElementById("userError")
+  const emailError=document.getElementById("emailError")
+  const msgError=document.getElementById("msgError")
+  
+  userError.textContent=""
+  emailError.textContent=""
+  msgError.textContent=""
+  
+  if(username.value===""){
+    userError.textContent="Username required"
+    valid=false
+  }
+  
+  if(!email.value.includes("@")){
+    emailError.textContent="Valid email required"
+    valid=false
+  }
+  
+  if(message.value.length<10){
+    msgError.textContent="Message must be 10 characters"
+    valid=false
+  }
+  
+  if(!valid){
+    e.preventDefault()
+  }else{
+    document.getElementById("successMessage").textContent=
+    "Thanks! We'll get back to you soon."
+    e.preventDefault()
+  }
 
 })
 
 }
 
-/* FETCH API */
+/* FETCH API: GET A QUOTE*/
 
 async function getQuote(){
 
 try{
 
-const res=await fetch("https://api.quotable.io/random")
-const data=await res.json()
-
-const quote=document.getElementById("quote")
-
-if(quote){
-quote.textContent=`"${data.content}" — ${data.author}`
+    const res = await fetch("https://api.quotable.io/quotes/random");
+    const data = await res.json();
+    
+    const quote = document.getElementById("quote");
+    
+    if(quote){
+      quote.textContent = `"${data[0].content}" — ${data[0].author}`;
+    }
+  
+  }catch{
+  
+    const quote = document.getElementById("quote");
+      
+    if(quote){
+      quote.textContent = "Failed to load quote.";
+    }
+  
+  }
 }
 
-}catch{
-
-const quote=document.getElementById("quote")
-
-if(quote){
-quote.textContent="Failed to load quote."
-}
-
-}
-
-}
-
+getQuote();
 getQuote()
+
