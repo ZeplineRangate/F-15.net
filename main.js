@@ -30,12 +30,12 @@ if(topBtn){
 /* DATA */
 
 const aircraft=[
-{name:"F-15A",year:1974,role:"Air Superiority"},
-{name:"F-15C",year:1979,role:"Air Superiority"},
-{name:"F-15E",year:1989,role:"Strike"},
-{name:"F-15EX",year:2021,role:"Multirole"},
-{name:"F-15J",year:1981,role:"Interceptor"},
-{name:"F-15K",year:2005,role:"Strike"}
+  {name:"F-15A",year:1974,role:"Air Superiority"},
+  {name:"F-15C",year:1979,role:"Air Superiority"},
+  {name:"F-15E",year:1989,role:"Strike"},
+  {name:"F-15EX",year:2021,role:"Multirole"},
+  {name:"F-15J",year:1981,role:"Interceptor"},
+  {name:"F-15K",year:2005,role:"Strike"}
 ]
 
 const container=document.getElementById("aircraftContainer")
@@ -178,4 +178,5 @@ try{
 
 getQuote();
 getQuote()
+
 
