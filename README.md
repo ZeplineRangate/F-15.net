@@ -9,3 +9,15 @@ Change from A1: Added background image, simplified home page elements, added log
 AI Document: 
 Fixed CSS for login page. Incorparated code from ChatGPT
 Human Verification logics. Incorparated code from ChatGPT. It generates a short string and asks the user to enter it in the input box. Simple CAPTCHA-style verification. 
+
+-Update 26.3.1: 
+Added Hamburger for Navbar. 
+Added user input validation for login page
+Added back to top button when scrolling down
+Added dynamically rendered data from arrays for F-15 models
+Added collapsible items for FAQ on homepage
+Search page now able to filter the models using the search bar
+Fetch a quote from API: https://api.quotable.io/quotes/random
+
+AI documentations: 
+ChatGPT used. Help on debugging. Help on logics for the search page rendering. 
