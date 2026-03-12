@@ -28,7 +28,7 @@ if(topBtn){
 }
 
 /* DATA */
-
+//ChatGPT thinks about this way to use arrays to render the elements
 const aircraft=[
   {name:"F-15A",year:1974,role:"Air Superiority"},
   {name:"F-15C",year:1979,role:"Air Superiority"},
@@ -109,44 +109,44 @@ if(form){
 
   form.addEventListener("submit",(e)=>{
   
-  let valid=true
+    let valid=true
+    
+    const username=document.getElementById("username")
+    const email=document.getElementById("email")
+    const message=document.getElementById("message")
+    
+    const userError=document.getElementById("userError")
+    const emailError=document.getElementById("emailError")
+    const msgError=document.getElementById("msgError")
+    
+    userError.textContent=""
+    emailError.textContent=""
+    msgError.textContent=""
+    
+    if(username.value===""){
+      userError.textContent="Username required"
+      valid=false
+    }
+    
+    if(!email.value.includes("@")){
+      emailError.textContent="Valid email required"
+      valid=false
+    }
+    
+    if(message.value.length<10){
+      msgError.textContent="Message must be 10 characters"
+      valid=false
+    }
+    
+    if(!valid){
+      e.preventDefault()
+    }else{
+      document.getElementById("successMessage").textContent=
+      "Thanks! We'll get back to you soon."
+      e.preventDefault()
+    }
   
-  const username=document.getElementById("username")
-  const email=document.getElementById("email")
-  const message=document.getElementById("message")
-  
-  const userError=document.getElementById("userError")
-  const emailError=document.getElementById("emailError")
-  const msgError=document.getElementById("msgError")
-  
-  userError.textContent=""
-  emailError.textContent=""
-  msgError.textContent=""
-  
-  if(username.value===""){
-    userError.textContent="Username required"
-    valid=false
-  }
-  
-  if(!email.value.includes("@")){
-    emailError.textContent="Valid email required"
-    valid=false
-  }
-  
-  if(message.value.length<10){
-    msgError.textContent="Message must be 10 characters"
-    valid=false
-  }
-  
-  if(!valid){
-    e.preventDefault()
-  }else{
-    document.getElementById("successMessage").textContent=
-    "Thanks! We'll get back to you soon."
-    e.preventDefault()
-  }
-
-})
+  })
 
 }
 
@@ -178,5 +178,6 @@ try{
 
 getQuote();
 getQuote()
+
 
 
