@@ -20,4 +20,4 @@ Search page now able to filter the models using the search bar
 Fetch a quote from API: https://api.quotable.io/quotes/random
 
 AI documentations: 
-ChatGPT used. Help on debugging. Help on logics for the search page rendering. 
+ChatGPT used. Help on debugging and some syntax correction in main.js. Help on the idea for the search page rendering. 
